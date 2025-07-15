@@ -33,7 +33,7 @@ html, body, #map {
 
 	function onMapClick(e) {
 		if(typeof AndroidInterface !== 'undefined') {
-			AndroidInterface.updateLatLon(e.latlng);
+			AndroidInterface.updateLatLon(e.latlng.lat+":"+e.latlng.lon);
 		}
 		if (theMarker != undefined) {
 			map.removeLayer(theMarker);
