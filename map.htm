@@ -63,7 +63,7 @@ function successCallback(position) {
     const longitude = position.coords.longitude;
     const accuracy = position.coords.accuracy; // Accuracy in meters
 
-    map.setView(new L.LatLng(40.737, -73.923), 8);
+    map.setView(new L.LatLng(latitude, longitude), 8);
 
     alert(`Latitude: ${latitude}`);
     console.log(`Longitude: ${longitude}`);
