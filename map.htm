@@ -24,7 +24,7 @@ html, body, #map {
 <script>
 
 	var theMarker = {};
-	var map = L.map('map');//.fitWorld();
+	var map = L.map('map').fitWorld();
 	map.locate({setView: true, watch: true});
 	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 17,
