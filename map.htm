@@ -25,7 +25,7 @@ html, body, #map {
 
 	var theMarker = {};
 	var map = L.map('map');//.fitWorld();
-	map.locate({setView: true, watch: true});
+	//map.locate({setView: true, watch: true});
 	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 17,
 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -63,7 +63,7 @@ function successCallback(position) {
     const longitude = position.coords.longitude;
     const accuracy = position.coords.accuracy; // Accuracy in meters
 
-    //map.setView(new L.LatLng(40.737, -73.923), 8);
+    map.setView(new L.LatLng(40.737, -73.923), 8);
 
     alert(`Latitude: ${latitude}`);
     console.log(`Longitude: ${longitude}`);
