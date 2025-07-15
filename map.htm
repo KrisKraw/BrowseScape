@@ -65,6 +65,8 @@ function successCallback(position) {
 
     map.setView(new L.LatLng(latitude, longitude), 15);
 
+    L.marker(new L.LatLng(latitude, longitude)).addTo(map);
+
     //alert(`Latitude: ${latitude}`);
     console.log(`Longitude: ${longitude}`);
     console.log(`Accuracy: ${accuracy} meters`);
