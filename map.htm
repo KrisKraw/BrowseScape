@@ -31,19 +31,6 @@ html, body, #map {
 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
 
-	//var popup = L.popup();
-
-	function onMapClick(e) {
-		if(typeof AndroidInterface !== 'undefined') {
-			AndroidInterface.updateLatLon(e.latlng);
-		}
-		if (theMarker != undefined) {
-			map.removeLayer(theMarker);
-    	}
-		theMarker = L.marker(e.latlng).addTo(map);
-	}
-
-	map.on('click', onMapClick);
 
 </script>
 </body>
