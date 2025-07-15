@@ -43,31 +43,18 @@ html, body, #map {
 
 	map.on('click', onMapClick);
 
-	function onLocationError(e) {
-	    alert(e.message);
-	}
-
-map.on('locationerror', onLocationError);
-
-
 const options = {
 	enableHighAccuracy: true, // Request high accuracy if available
-    timeout: 5000,           // Maximum time in milliseconds to wait for a position
-    maximumAge: 0            // Maximum age in milliseconds of a possible cached position
+    timeout: 5000,            // Maximum time in milliseconds to wait for a position
+    maximumAge: 60000         // Maximum age in milliseconds of a possible cached position
     };
 
 function successCallback(position) {
 	const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     const accuracy = position.coords.accuracy; // Accuracy in meters
-
     map.setView(new L.LatLng(latitude, longitude), 15);
-
     theMarker = L.marker(new L.LatLng(latitude, longitude)).addTo(map);
-
-    //alert(`Latitude: ${latitude}`);
-    console.log(`Longitude: ${longitude}`);
-    console.log(`Accuracy: ${accuracy} meters`);
 }
 
 function errorCallback(error) {
