@@ -42,7 +42,6 @@ html, body, #map {
     	}
 		theMarker = L.marker(e.latlng).addTo(map);
 	}
-	L.control.locate().addTo(map)
 
 	map.on('click', onMapClick);
 
@@ -54,23 +53,25 @@ map.on('locationerror', onLocationError);
 
 
 const options = {
-        enableHighAccuracy: true, // Request high accuracy if available
-        timeout: 5000,           // Maximum time in milliseconds to wait for a position
-        maximumAge: 0            // Maximum age in milliseconds of a possible cached position
+	enableHighAccuracy: true, // Request high accuracy if available
+    timeout: 5000,           // Maximum time in milliseconds to wait for a position
+    maximumAge: 0            // Maximum age in milliseconds of a possible cached position
     };
 
-    function successCallback(position) {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        const accuracy = position.coords.accuracy; // Accuracy in meters
+function successCallback(position) {
+	const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const accuracy = position.coords.accuracy; // Accuracy in meters
 
-        console.log(`Latitude: ${latitude}`);
-        console.log(`Longitude: ${longitude}`);
-        console.log(`Accuracy: ${accuracy} meters`);
-    }
+    //map.setView(new L.LatLng(40.737, -73.923), 8);
 
-    function errorCallback(error) {
-        switch(error.code) {
+    alert(`Latitude: ${latitude}`);
+    console.log(`Longitude: ${longitude}`);
+    console.log(`Accuracy: ${accuracy} meters`);
+}
+
+function errorCallback(error) {
+	switch(error.code) {
             case error.PERMISSION_DENIED:
                 console.error("User denied the request for Geolocation.");
                 break;
@@ -83,10 +84,10 @@ const options = {
             case error.UNKNOWN_ERROR:
                 console.error("An unknown error occurred.");
                 break;
-        }
-    }
+	}
+}
 
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
 
 </script>
 </body>
