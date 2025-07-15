@@ -25,6 +25,7 @@ html, body, #map {
 
 	var theMarker = {};
 	var map = L.map('map');//.fitWorld();
+	map.locate({setView: true, maxZoom: 16, watch: true});
 	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 19,
 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -43,7 +44,6 @@ html, body, #map {
 	}
 
 	map.on('click', onMapClick);
-	map.locate({setView: true, maxZoom: 16, watch: true});
 
 </script>
 </body>
