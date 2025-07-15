@@ -22,6 +22,10 @@ html, body, #map {
 <body>
 <div id="map" style="width: 600px; height: 400px;"></div>
 <script>
+	if(map !== 'undefined') {
+		map.off;
+		map.remove;
+	}
 	var theMarker = {};
 	var map = L.map('map').fitWorld();
 	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
